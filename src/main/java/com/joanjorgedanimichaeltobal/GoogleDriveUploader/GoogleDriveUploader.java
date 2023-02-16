@@ -4,6 +4,7 @@ import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.FileContent;
+import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.DriveScopes;
 import com.google.api.services.drive.model.File;
@@ -12,7 +13,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
-
+import com.google.api.client.json.JsonFactory;
+import com.google.api.client.json.JsonGenerator;
+import com.google.api.client.json.JsonParser;
+import com.google.api.client.json.JsonToken;
+import com.google.api.client.util.Preconditions;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -21,7 +26,7 @@ import java.util.Collections;
 public class GoogleDriveUploader {
 
     private static final String APPLICATION_NAME = "Nombre de tu aplicación";
-    private static final String FOLDER_NAME = "Nombre de la carpeta donde quieres subir los archivos";
+    private static final String FOLDER_NAME = "https://drive.google.com/drive/u/0/folders/1oEvg47Uxo-97yt1NyLtefvGLZdENvA8x";
 
     public static void main(String[] args) throws IOException, GeneralSecurityException {
 
